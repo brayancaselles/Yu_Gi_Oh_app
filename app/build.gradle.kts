@@ -95,12 +95,13 @@ dependencies {
     // Icons
     implementation("androidx.compose.material:material-icons-extended:1.5.4")
 
-    // Room
-    implementation("androidx.room:room-runtime:$roomVersion")
-    kapt("androidx.room:room-compiler:$roomVersion")
-    implementation("androidx.room:room-ktx:$roomVersion")
-
     // Navigation
     implementation("androidx.navigation:navigation-compose:2.7.4")
     implementation("androidx.hilt:hilt-navigation-compose:1.1.0")
+
+    // coil
+    implementation("io.coil-kt:coil-compose:2.2.2")
+    implementation("androidx.lifecycle:lifecycle-viewmodel-compose:2.6.2")
+    implementation("androidx.lifecycle:lifecycle-runtime-compose:2.6.2")
+    implementation("androidx.compose.runtime:runtime-livedata:1.5.3")
 }

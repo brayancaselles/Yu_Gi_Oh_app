@@ -13,9 +13,6 @@ import javax.inject.Inject
 @HiltViewModel
 class ArchetypeViewModel @Inject constructor(useCase: GetListArchetypeUseCase) : ViewModel() {
 
-    private val _showDialog = MutableLiveData<Boolean>()
-    val showDialog: LiveData<Boolean> = _showDialog
-
     private val _loading = MutableLiveData<Boolean>()
     val loading: LiveData<Boolean> = _loading
 
@@ -28,9 +25,5 @@ class ArchetypeViewModel @Inject constructor(useCase: GetListArchetypeUseCase) :
             _list.value = useCase.invoke()
             _loading.value = false
         }
-    }
-
-    fun onDialogClose() {
-        _showDialog.value = false
     }
 }

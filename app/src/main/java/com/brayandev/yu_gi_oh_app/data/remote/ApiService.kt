@@ -10,6 +10,6 @@ interface ApiService {
     @GET("archetypes.php")
     suspend fun getArchetypesFromApi(): List<ArchetypeResponse>
 
-    @GET("cardinfo.php?archetype={archetype}")
-    suspend fun getListLetters(@Query("archetype") archetypeName: String): CardsResult
+    @GET("cardinfo.php?archetype=")
+    suspend fun getListLetters(@Query("archetype") archetype: String): CardsResult
 }

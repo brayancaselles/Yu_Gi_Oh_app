@@ -19,12 +19,10 @@ class RemoteDatasource @Inject constructor(private val apiService: ApiService) {
     suspend fun getCardListFromApi(archetypeName: String): CardsResult {
         Log.d("RemoteDatasource", archetypeName)
         val response = apiService.getListLetters(archetypeName)
-        Log.d("RemoteDatasource", response.toString())
-
-        return CardsResult(emptyList())/*if (response.data.isNullOrEmpty()) {
+        return if (response.data.isNullOrEmpty()) {
             CardsResult(emptyList())
         } else {
             response
-        }*/
+        }
     }
 }

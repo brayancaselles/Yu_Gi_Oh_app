@@ -1,6 +1,5 @@
 package com.brayandev.yu_gi_oh_app.ui.views.DetailCards
 
-import android.util.Log
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.SavedStateHandle
@@ -26,6 +25,9 @@ class DetailViewModel @Inject constructor(
         archetypeName = savedStateHandle[ARCHETYPE_NAME] ?: ""
     }
 
+    private val _archetypeNameText = MutableLiveData<String>()
+    val archetypeNameText: LiveData<String> = _archetypeNameText
+
     private val _loading = MutableLiveData<Boolean>()
     val loading: LiveData<Boolean> = _loading
 
@@ -35,6 +37,7 @@ class DetailViewModel @Inject constructor(
     fun getListCards(archetypeName: String = this.archetypeName) {
         viewModelScope.launch {
             _loading.value = true
+            _archetypeNameText.value = archetypeName
             _list.value = useCase.getCardList(archetypeName)
             _loading.value = false
         }
